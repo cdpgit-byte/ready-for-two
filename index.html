@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Charls Pasion: US go-to-market in one person. A note for Jonas at Mono.">
+<meta property="og:title" content="Charls Pasion for Mono">
+<meta property="og:description" content="US go-to-market in one person. A note for Jonas at Mono.">
+<meta name="robots" content="noindex">
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Charls Pasion for Mono</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one 1080px column on warm cream with a yellow glow at the top; grey bands for the working parts; white rounded cards; black pills. Heavy serif for statements, grotesque for everything else, mono for data. */
+:root{
+  --bg:#F6F2D2; --glow:#FFFBB0; --band:#EBE7E1; --card:#FFFFFF;
+  --fg:#121211; --muted:#6B675D; --rule:#D9D4C4; --line:#8B8676;
+  --sun:#F0D93A; --sun-soft:#FBF3A6; --link:#3F5BD8; --stop:#C2412D;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Bricolage Grotesque",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"DM Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17160F; --glow:#38340F; --band:#1F1E19; --card:#29271F; --fg:#F4F1E2; --muted:#ABA694; --rule:#3B382D; --line:#7E7966; --sun:#E8D23A; --sun-soft:#3D390F; --link:#9AABFF; --stop:#F0816C; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17160F; --glow:#38340F; --band:#1F1E19; --card:#29271F; --fg:#F4F1E2; --muted:#ABA694; --rule:#3B382D; --line:#7E7966; --sun:#E8D23A; --sun-soft:#3D390F; --link:#9AABFF; --stop:#F0816C; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:6px}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{text-wrap:balance}
+h1{font-family:var(--serif);font-weight:800;font-size:clamp(44px,8.6vw,104px);line-height:.98;letter-spacing:-.025em}
+h2{font-family:var(--sans);font-weight:500;font-size:clamp(30px,4.8vw,54px);line-height:1.06;letter-spacing:-.025em}
+h2 span{color:var(--muted)}
+h3{font-family:var(--sans);font-weight:700;font-size:clamp(19px,2.1vw,23px);line-height:1.2;letter-spacing:-.01em}
+.lede{font-size:clamp(18px,2vw,22px);line-height:1.45;max-width:60ch}
+.sub{color:var(--muted);max-width:62ch}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pill{display:inline-flex;align-items:center;gap:10px;background:var(--fg);color:var(--bg);border:2px solid var(--fg);border-radius:999px;padding:14px 26px;font:700 14px var(--sans);letter-spacing:.09em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .2s}
+.pill:hover{transform:translateY(-2px)}
+.pill.ghost{background:transparent;color:var(--fg)}
+.pill.sm{padding:9px 18px;font-size:12px}
+section{padding-block:clamp(64px,10vw,128px)}
+.band{background:var(--band)}
+.band.round{border-radius:0 0 clamp(24px,4vw,48px) clamp(24px,4vw,48px)}
+.head{display:grid;gap:18px;margin-bottom:clamp(32px,5vw,56px)}
+.card{background:var(--card);border-radius:clamp(18px,2.4vw,28px)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.mark{font:700 26px var(--sans);letter-spacing:-.05em;text-decoration:none}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:16px}
+.nav ul a{text-decoration:none;color:var(--muted)}
+.nav ul a:hover{color:var(--fg)}
+@media (max-width:820px){.nav ul{display:none}}
+.nav-right{display:flex;align-items:center;gap:10px}
+.theme-btn{position:relative;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--fg);background:transparent;color:var(--fg);display:grid;place-items:center;cursor:pointer;transition:transform .3s}
+.theme-btn:hover{transform:rotate(-18deg)}
+.theme-btn svg{grid-area:1/1;display:none}
+.theme-btn[data-mode="auto"] .i-auto,.theme-btn[data-mode="light"] .i-sun,.theme-btn[data-mode="dark"] .i-moon{display:block}
+.theme-btn::after{content:attr(data-label);position:absolute;top:calc(100% + 8px);right:0;font:500 12px var(--sans);white-space:nowrap;background:var(--fg);color:var(--bg);padding:5px 9px;border-radius:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.theme-btn.show-label::after{opacity:1}
+
+/* hero */
+.hero{padding-block:clamp(48px,9vw,112px) clamp(56px,8vw,96px);background:radial-gradient(60% 70% at 50% 0%,var(--glow),transparent 70%);text-align:center}
+.hero .wrap{display:grid;gap:clamp(22px,3vw,32px);justify-items:center}
+.hero .lede{max-width:44ch}
+.noask{display:inline-flex;align-items:center;gap:10px;font-size:15px;border:1px solid var(--rule);background:color-mix(in srgb,var(--card) 60%,transparent);border-radius:999px;padding:8px 16px 8px 12px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--sun);border:1.5px solid var(--fg);flex:none}
+
+/* router */
+.ask{display:grid;gap:clamp(20px,3vw,30px);justify-items:center;text-align:center}
+.askbox{width:min(100%,720px);background:var(--card);border-radius:999px;padding:16px 16px 16px 26px;display:flex;align-items:center;gap:12px;text-align:left;min-height:64px}
+.askbox .q{flex:1;min-width:0;font-size:clamp(16px,2vw,20px);overflow-wrap:anywhere}
+.caret{display:inline-block;width:2px;height:1.1em;background:var(--fg);vertical-align:-.18em;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.to{flex:none;display:inline-flex;align-items:center;gap:8px;background:var(--sun-soft);border-radius:999px;padding:8px 14px;font:500 13px var(--mono);white-space:nowrap}
+@media (max-width:520px){.askbox{border-radius:26px;flex-wrap:wrap;padding:16px 18px}.to{margin-left:auto}}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:860px}
+.chip{display:inline-flex;align-items:center;gap:10px;font:500 16px var(--sans);color:var(--fg);background:var(--card);border:1.5px solid var(--fg);border-radius:999px;padding:11px 14px 11px 20px;cursor:pointer;box-shadow:0 3px 0 var(--fg);transition:background .2s,color .2s,transform .15s,box-shadow .15s}
+.chip::after{content:"\2192";display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--sun);color:#121211;font-size:14px;flex:none;transition:transform .2s}
+.chip:hover{transform:translateY(-2px);box-shadow:0 5px 0 var(--fg)}
+.chip:hover::after{transform:translateX(2px)}
+.chip:active{transform:translateY(3px);box-shadow:0 0 0 var(--fg)}
+.chip[aria-pressed="true"]{transform:translateY(3px);box-shadow:0 0 0 var(--fg)}
+.chip[aria-pressed="true"]::after{content:"\2713"}
+.chips.hint .chip[aria-pressed="false"]{animation:nudge 2.6s ease-in-out infinite;animation-delay:calc(var(--i)*.22s)}
+@keyframes nudge{0%,70%,100%{box-shadow:0 3px 0 var(--fg),0 0 0 0 color-mix(in srgb,var(--sun) 80%,transparent)}35%{box-shadow:0 3px 0 var(--fg),0 0 0 9px transparent}}
+.tap{display:inline-flex;align-items:center;gap:10px;font-size:clamp(17px,2vw,21px);font-weight:500}
+.tap svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.answer{width:100%;text-align:left;padding:clamp(24px,4vw,48px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,4vw,56px);align-items:center;transition:opacity .25s,transform .25s}
+.answer.swap{opacity:.15;transform:translateY(6px)}
+@media (max-width:760px){.answer{grid-template-columns:1fr}}
+.answer .big{font-family:var(--serif);font-weight:800;font-size:clamp(64px,12vw,136px);line-height:.9;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.answer .nl{margin-top:12px;font-size:clamp(16px,1.8vw,19px);max-width:30ch}
+.answer .side{display:grid;gap:14px;align-content:center}
+.answer .k{font-size:clamp(22px,2.6vw,30px);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.answer p{color:var(--muted)}
+.pips{display:flex;gap:8px;justify-content:center}
+.pips i{width:9px;height:9px;border-radius:50%;background:var(--rule);transition:background .3s}
+.pips i.on{background:var(--fg)}
+
+/* proof row */
+.proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+@media (max-width:860px){.proof{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:440px){.proof{grid-template-columns:1fr}}
+.proof div{display:grid;gap:8px;align-content:start;border-top:2px solid var(--fg);padding-top:16px;min-width:0}
+.proof b{font-family:var(--serif);font-weight:800;font-size:clamp(40px,5.4vw,64px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.proof span{font-size:15px}
+
+/* activity cards */
+.acts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:clamp(28px,4vw,44px)}
+@media (max-width:860px){.acts{grid-template-columns:1fr}.act:nth-child(n+2){display:none}}
+.act{background:var(--card);color:var(--fg);border:0;border-radius:18px;text-align:left;font:400 12px/1.7 var(--mono);padding:0;cursor:pointer;overflow:hidden;min-width:0;transition:transform .25s,box-shadow .25s}
+.act:hover{transform:translateY(-2px)}
+.act.on{box-shadow:0 0 0 2px var(--fg)}
+.act-bar{display:flex;align-items:center;gap:8px;padding:12px 16px 10px;border-bottom:1px solid var(--rule);font:500 13px var(--sans);color:var(--muted)}
+.act-bar .dot{width:8px;height:8px}
+.act-body{padding:10px 16px 14px;height:142px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.act-body div{white-space:pre;overflow:hidden;text-overflow:ellipsis}
+.act-body .ok{font-weight:500}
+.act-body .ok::first-letter{background:var(--sun-soft)}
+.act-body .dim{color:var(--muted)}
+.act-body .caret{height:13px;width:7px;vertical-align:-2px;margin:0}
+
+/* system map */
+.sys-heads{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,8vw,96px);margin-bottom:14px;font-size:14px;color:var(--muted)}
+.sys-heads span{display:flex;gap:8px;align-items:baseline;border-bottom:1px solid var(--rule);padding-bottom:8px;min-width:0}
+.sys-heads b{font:500 13px var(--mono);color:var(--fg)}
+.sys{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,8vw,96px);align-items:center}
+.sys-col{display:grid;gap:clamp(22px,4vw,44px);position:relative;z-index:1;min-width:0}
+.sys-svg{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0}
+.edge{fill:none;stroke:var(--line);stroke-width:1.3;opacity:.6}
+.edge.back{stroke-dasharray:3 5}
+.pk{fill:var(--fg)}.pk.st{fill:var(--line)}.pk.b{fill:var(--stop)}
+.node{position:relative;background:var(--card);border:1.5px solid transparent;border-radius:16px;padding:14px 30px 14px 16px;text-align:left;font:inherit;color:inherit;cursor:pointer;display:grid;gap:3px;min-width:0;transition:border-color .3s,background .3s,transform .2s}
+.node::after{content:"\203A";position:absolute;right:12px;top:9px;font-size:20px;line-height:1;color:var(--muted);transition:transform .2s}
+.node:hover{transform:translateY(-2px)}
+.node:hover::after{transform:translateX(3px)}
+.node small{font:400 11px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+.node b{font-weight:700;font-size:clamp(15px,1.9vw,20px);line-height:1.15;letter-spacing:-.01em}
+.node span{font-size:13px;color:var(--muted)}
+.node.hub{border-color:var(--rule)}
+.node[aria-pressed="true"]{border-color:var(--fg);background:var(--sun-soft)}
+.node.hit{border-color:var(--fg)}
+@media (max-width:600px){.node span,.node small{display:none}.node{padding:12px 18px 12px 10px;border-radius:12px}.node b{font-size:13.5px}.node::after{right:5px;top:7px;font-size:15px}}
+.guards{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(28px,4vw,44px);align-items:center}
+.guards .lab{font-size:14px;color:var(--muted);margin-right:4px}
+.guard{font:500 14px var(--sans);border:1.5px solid var(--rule);background:transparent;color:var(--fg);border-radius:999px;padding:7px 14px 7px 11px;cursor:pointer;display:inline-flex;gap:8px;align-items:center;transition:background .25s,border-color .25s,color .25s}
+.guard i{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .25s}
+.guard[aria-pressed="true"]{border-color:var(--fg)}
+.guard.flash{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.guard.flash i{background:var(--stop)}
+.detail{margin-top:clamp(24px,4vw,36px);padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,4vw,44px)}
+@media (max-width:760px){.detail{grid-template-columns:1fr}}
+.detail>div{min-width:0;animation:rise .4s ease both}
+@keyframes rise{from{opacity:.25;transform:translateY(6px)}to{opacity:1;transform:none}}
+.detail .tag{margin-bottom:8px}
+.detail p{color:var(--muted);font-size:16px}
+.detail .at p{color:var(--fg)}
+.foot{font-size:13px;color:var(--muted);margin-top:12px}
+.results{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:clamp(36px,5vw,56px)}
+@media (max-width:760px){.results{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.results div{padding:20px;display:grid;gap:6px;align-content:start;min-width:0}
+.results b{font-family:var(--serif);font-weight:800;font-size:clamp(32px,4.4vw,52px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.results div>span{font-size:14px;color:var(--muted)}
+
+/* public: what broke */
+.public{margin-top:clamp(56px,8vw,96px);display:grid;gap:24px}
+.broke{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+@media (max-width:1000px){.broke{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.broke{grid-template-columns:1fr}}
+.broke div{padding:20px;display:grid;gap:8px;align-content:start;min-width:0}
+.broke h3{font-size:17px}
+.broke p{font-size:14.5px;color:var(--muted)}
+
+/* us teams */
+.arrows{list-style:none;margin:0;padding:0;display:grid}
+.arrows li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:4px 10px;padding:22px 0;border-top:1px solid var(--rule)}
+.arrows li:last-child{border-bottom:1px solid var(--rule)}
+.arrows li::before{content:"\2192";font-size:22px;line-height:1.2}
+.arrows b{font-size:clamp(20px,2.4vw,26px);font-weight:500;letter-spacing:-.015em;line-height:1.2}
+.arrows p{grid-column:2;color:var(--muted);max-width:64ch}
+.draft{justify-self:start;border:1.5px dashed var(--line);border-radius:999px;padding:6px 14px;font:400 12.5px var(--mono);color:var(--muted)}
+
+/* clocks */
+.tz{position:relative;overflow:hidden}
+.ghost-word{position:absolute;left:50%;top:clamp(28px,5vw,64px);transform:translateX(-50%);font:700 clamp(96px,25vw,330px)/.8 var(--sans);letter-spacing:-.05em;color:var(--card);white-space:nowrap;pointer-events:none;user-select:none}
+.tz .wrap{position:relative;display:grid;gap:clamp(28px,4vw,44px)}
+.tz h2{font-family:var(--serif);font-weight:800;max-width:16ch}
+.clocks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:560px}
+.clock{padding:18px 20px;display:grid;gap:2px;border:1.5px solid var(--rule)}
+.clock b{font:500 clamp(34px,6vw,54px)/1 var(--mono);letter-spacing:-.04em}
+.clock span{font-size:14px;color:var(--muted)}
+.day{padding:clamp(18px,3vw,28px);display:grid;gap:12px;border:1.5px solid var(--rule)}
+.day-row{display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;align-items:center;font-size:14px}
+.track{position:relative;height:30px;background:var(--band);border-radius:8px;overflow:hidden}
+.track .seg{position:absolute;top:0;bottom:0;border-radius:8px}
+.track .seg.l{background:var(--line)}
+.track .seg.s{background:var(--sun);border:1.5px solid var(--fg)}
+.track .now{position:absolute;top:0;bottom:0;width:2px;background:var(--stop)}
+.day-axis{display:flex;justify-content:space-between;margin-left:88px;font:400 12px var(--mono);color:var(--muted)}
+@media (max-width:440px){.day-row{grid-template-columns:58px minmax(0,1fr)}.day-axis{margin-left:70px}}
+
+/* now / later / ready */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+@media (max-width:860px){.plans{grid-template-columns:1fr}}
+.plan{padding:clamp(24px,3vw,36px);display:grid;gap:18px;align-content:start;min-width:0}
+.plan h3{font-size:clamp(24px,2.8vw,30px)}
+.plan .price{margin-top:-12px}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.plan li{display:grid;grid-template-columns:26px minmax(0,1fr)}
+.plan li::before{content:"\2192"}
+.plan.hi{background:var(--fg);color:var(--bg)}
+.plan.hi .price{color:var(--bg);opacity:.75}
+
+/* person */
+.person{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,5vw,64px);align-items:start}
+@media (max-width:760px){.person{grid-template-columns:1fr}}
+.photo{aspect-ratio:4/5;max-width:100%;border:1.5px dashed var(--line);border-radius:clamp(18px,2.4vw,28px);display:grid;place-items:center;text-align:center;padding:20px;color:var(--muted);font:400 13px var(--mono)}
+.person-text{display:grid;gap:18px}
+.person-text .lede{max-width:40ch}
+.how{display:grid;gap:0}
+.how div{padding:18px 0;border-top:1px solid var(--line);display:grid;gap:4px}
+.how div:last-child{border-bottom:1px solid var(--line)}
+.how p{color:var(--muted);font-size:16px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+.mail-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.email{font:400 clamp(15px,2vw,18px) var(--mono);background:var(--card);padding:11px 18px;border-radius:999px;user-select:all;overflow-wrap:anywhere}
+.toast{font-size:13px;color:var(--muted);min-height:1em}
+footer{padding-block:28px 48px;color:var(--muted);font-size:13px}
+
+/* closer */
+.closer{padding-block:clamp(96px,16vw,200px);text-align:center;background:radial-gradient(60% 80% at 50% 100%,var(--glow),transparent 70%)}
+.closer .wrap{display:grid;gap:clamp(14px,2vw,24px);justify-items:center}
+.closer h2{font-family:var(--serif);font-weight:800;font-size:clamp(48px,10vw,128px);line-height:.95;letter-spacing:-.03em;min-height:.95em}
+.closer h2 span{color:inherit}
+.closer .two{font-size:clamp(22px,3.4vw,40px);font-weight:500;letter-spacing:-.02em;line-height:1.15;transition:opacity .9s,transform .9s}
+.closer .two.wait{opacity:0;transform:translateY(10px)}
+.closer .caret{width:.06em;height:.8em;vertical-align:-.04em;margin-left:.04em}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Charls Pasion, back to top">charls</a>
+    <ul>
+      <li><a href="#route">Proof</a></li>
+      <li><a href="#built">What I built</a></li>
+      <li><a href="#us">US teams</a></li>
+      <li><a href="#hours">Hours</a></li>
+      <li><a href="#me">About</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-btn" id="themeBtn" data-mode="auto" aria-label="Switch theme">
+        <svg class="i-auto" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>
+        <svg class="i-sun" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.500v2.500M12 19v2.500M2.500 12H5M19 12h2.500M5.300 5.300l1.800 1.800M16.900 16.900l1.800 1.800M5.300 18.700l1.800-1.800M16.900 7.100l1.800-1.800" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <svg class="i-moon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.500A8 8 0 0 1 9.500 4a8 8 0 1 0 10.500 10.500z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      </button>
+      <a class="pill sm ghost" href="#me">Say hello</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1>US go-to-market<br>in one person</h1>
+      <p class="lede">Jonas, I follow Mono because you publish the hard months along with the good one. I'm an account manager and builder in Seattle. This page is how I'd introduce myself if we met.</p>
+      <span class="noask"><span class="dot"></span>No open role, and no ask. Keep me in mind when Mono is ready for the US.</span>
+    </div>
+  </section>
+
+  <section class="band round" id="route">
+    <div class="wrap ask">
+      <h2>Tell me what you need. <span>I'll pick the proof.</span></h2>
+      <p class="tap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.8 1.8 0 0 1 3.6 0V11m0-1.500a1.700 1.700 0 0 1 3.400 0V11m0-.5a1.700 1.700 0 0 1 3.400 0v4.200c0 3.500-2.300 6.300-5.800 6.300h-1.300c-2 0-3.300-.8-4.400-2.400L5 14.300a1.700 1.700 0 0 1 2.800-1.900L9 14"/></svg>Tap what you'd need in the US</p>
+      <div class="askbox"><span class="q"><span id="askText">Find our first 50 US teams</span><span class="caret" aria-hidden="true"></span></span><span class="to"><span class="dot"></span>routed to me</span></div>
+      <div class="chips hint" id="chips" role="group" aria-label="What you might need in the US"></div>
+      <div class="answer card" id="answer" aria-live="polite">
+        <div><div class="tag" id="aCo">Garmentory · April to August 2026</div><div class="big" id="aN">67.5%</div><p class="nl" id="aNl">of GMV from net-new partners came from the 10 boutiques I signed</p></div>
+        <div class="side"><div class="k" id="aK">Outbound from zero</div><p id="aP">I built the outbound system myself, on contract at ten hours a week, and ran it for $217 a month. All 10 stores I signed went on to sell.</p></div>
+      </div>
+      <div class="pips" id="pips" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="proof">
+        <div><span class="tag">Uber · Q3 2026</span><b>104%</b><span>of quota, against a 37% blended growth target</span></div>
+        <div><span class="tag">Uber · Q4 2026</span><b>$40M</b><span>book awarded after a strong Q3 finish, up from $8 million</span></div>
+        <div><span class="tag">Garmentory · 2026</span><b>7 of 10</b><span>boutiques I signed reached the top 30 of about 800 partners by revenue</span></div>
+        <div><span class="tag">Talk Carpet · 2016–2023</span><b>$7M</b><span>annual revenue at the company I co-founded</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="built">
+    <div class="wrap">
+      <div class="head">
+        <h2>One person, three agents. <span>The outbound system I built.</span></h2>
+        <p class="sub">Garmentory is an online marketplace where about 800 independent fashion boutiques and brands sell in one place. In 2026 I worked there on contract, ten hours a week beside my job at Uber, finding the next boutiques and getting them live. I'm not an engineer. I built this with AI coding agents, often three at once, each under written rules. Tap any part to see what it did.</p>
+      </div>
+      <div class="acts" id="acts">
+        <button class="act" data-n="orch" aria-label="Agent orchestration: discovery"><div class="act-bar"><span class="dot"></span>Agent 1 · discovery</div><div class="act-body"></div></button>
+        <button class="act" data-n="orch" aria-label="Agent orchestration: stockist scraper"><div class="act-bar"><span class="dot"></span>Agent 2 · stockist scraper</div><div class="act-body"></div></button>
+        <button class="act" data-n="orch" aria-label="Agent orchestration: audits"><div class="act-bar"><span class="dot"></span>Agent 3 · audits</div><div class="act-body"></div></button>
+      </div>
+      <div class="sys-heads" aria-hidden="true"><span><b>01</b>Source</span><span><b>02</b>Enrich &amp; store</span><span><b>03</b>Reach &amp; track</span></div>
+      <div class="sys" id="sys">
+        <svg class="sys-svg" id="sysSvg" aria-hidden="true"></svg>
+        <div class="sys-col">
+          <button class="node" data-n="disc" aria-pressed="false"><small>Scraper</small><b>Discovery scraper</b><span>SerpAPI, capped runs</span></button>
+          <button class="node" data-n="stock" aria-pressed="true"><small>Scraper</small><b>Stockist scraper</b><span>47 brand pages</span></button>
+        </div>
+        <div class="sys-col">
+          <button class="node hub" data-n="air" aria-pressed="false"><small>Hub</small><b>Airtable base</b><span>Every record, every stage</span></button>
+          <button class="node" data-n="hunt" aria-pressed="false"><small>Script</small><b>Contact enrichment</b><span>Hunter.io</span></button>
+        </div>
+        <div class="sys-col">
+          <button class="node" data-n="draft" aria-pressed="false"><small>Script</small><b>Outreach drafter</b><span>Claude + Gmail API</span></button>
+          <button class="node" data-n="det" aria-pressed="false"><small>Script</small><b>Send &amp; reply tracking</b><span>Back into Airtable</span></button>
+        </div>
+      </div>
+      <div class="guards" id="guards">
+        <span class="lab">Guardrails</span>
+        <button class="guard" data-n="guard" data-g="cap" aria-pressed="false"><i></i>Credit caps</button>
+        <button class="guard" data-n="guard" data-g="dry" aria-pressed="false"><i></i>Dry run first</button>
+        <button class="guard" data-n="guard" data-g="dnc" aria-pressed="false"><i></i>Do-not-contact list</button>
+        <button class="guard" data-n="guard" data-g="live" aria-pressed="false"><i></i>Live partner sync</button>
+      </div>
+      <div class="detail card" id="detail" aria-live="polite"></div>
+      <p class="foot">Agent output is illustrative of the runs, not a recording.</p>
+
+      <div class="results" id="results">
+        <div class="card"><b><span class="cnt" data-to="10">10</span></b><span>boutiques signed, April to August 2026. All 10 went on to sell.</span></div>
+        <div class="card"><b><span class="cnt" data-to="67.5" data-dec="1">67.5</span>%</b><span>of GMV from net-new partners, from 13% of the new storefronts</span></div>
+        <div class="card"><b><span class="cnt" data-to="7">7</span> of 10</b><span>in the top 30 of all partners by revenue. 5 in the top 15.</span></div>
+        <div class="card"><b>$<span class="cnt" data-to="217">217</span></b><span>a month for the whole stack: Claude, Hunter.io, Airtable</span></div>
+      </div>
+
+      <div class="public">
+        <div class="head" style="margin-bottom:0">
+          <span class="tag">Public</span>
+          <h2>What broke. <span>You publish your losing months, so here are mine.</span></h2>
+        </div>
+        <div class="broke">
+          <div class="card"><h3>Enrichment overwrote live contacts</h3><p>It replaced addresses on threads that were already working. Now it fires at one stage only.</p></div>
+          <div class="card"><h3>Bounces failed silently</h3><p>The parser missed Microsoft non-delivery reports, so dead addresses looked healthy.</p></div>
+          <div class="card"><h3>Auto-replies counted as interest</h3><p>Out-of-office replies were logged as real responses and inflated reply rates.</p></div>
+          <div class="card"><h3>The data lied to me</h3><p>One account logged replies that never happened. Nobody had written back.</p></div>
+          <div class="card"><h3>I was pointed at a wall</h3><p>More than half my pipeline sat on a platform we couldn't onboard. None of it converted.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="us">
+    <div class="wrap">
+      <div class="head">
+        <span class="tag">After reading your Business page</span>
+        <h2>AI for successful teams. <span>In the US.</span></h2>
+        <p class="sub">Your Business page already makes the case. This is how I'd carry it across the Atlantic.</p>
+      </div>
+      <ul class="arrows">
+        <li><b>Keep your headline: independent of any single AI provider</b><p>US teams are arguing right now about which provider to standardize on. Mono lets them skip the argument and use the leaders today and tomorrow.</p></li>
+        <li><b>Start with teams that live in your six use cases</b><p>Researching customers and comparing quotes is my working week as an account manager. Agencies, consultancies and sales teams of 5 to 200 do the same, and a per-user price is easy for them to approve.</p></li>
+        <li><b>Rewrite the trust story for an American buyer</b><p>No training on their data, anonymised customer names, and a signed contract with a Data Processing Agreement. A US company with European clients will care that data sits in Germany. The others need to hear the first three.</p></li>
+        <li><b>Answer "Get in touch" during the US day</b><p>That contract request is the start of a sales conversation. A buyer in Seattle or New York who writes at 10:00 should hear back before lunch, not the next morning.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band tz" id="hours">
+    <div class="ghost-word" aria-hidden="true">SEATTLE</div>
+    <div class="wrap">
+      <h2>Your day ends. Mine starts.</h2>
+      <p class="lede">Seattle is <span id="diffTxt">nine</span> hours behind Lucerne. When you close the laptop at <span id="handTxt">18:00</span>, it's 9:00 here and US buyers are at their desks.</p>
+      <div class="clocks">
+        <div class="clock card"><b id="cL">--:--</b><span>Lucerne</span></div>
+        <div class="clock card"><b id="cS">--:--</b><span>Seattle</span></div>
+      </div>
+      <div class="day card" role="img" aria-label="A 24-hour bar in Lucerne time showing the Lucerne working day from 9:00 to 18:00 and the Seattle working day following it">
+        <div class="day-row"><span>Lucerne</span><div class="track"><div class="seg l" style="left:37.5%;width:37.5%"></div><div class="now" id="nowL" hidden></div></div></div>
+        <div class="day-row"><span>Seattle</span><div class="track" id="trackS"><div class="seg s" style="left:75%;width:25%"></div><div class="seg s" style="left:0;width:8.33%"></div></div></div>
+        <div class="day-axis" aria-hidden="true"><span>00</span><span>06</span><span>12</span><span>18</span><span>24</span></div>
+        <p class="foot" style="margin-top:0">Working hours, shown in Lucerne time. Seattle's 9:00 to 17:00 is the yellow bar. The red line is now.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <h2>No plan to pick. <span>All of it is free.</span></h2>
+      </div>
+      <div class="plans">
+        <div class="plan card"><h3>Now</h3><p class="price sub">USD 0 / month</p><p>Following along.</p><ul><li>Reading every update</li><li>Sending you this page</li><li>No ask</li></ul></div>
+        <div class="plan card"><h3>Later</h3><p class="price sub">USD 0 / month</p><p>Useful from a distance.</p><ul><li>US teams I think fit Mono</li><li>Partner introductions</li><li>Feedback from a US seller's side</li></ul></div>
+        <div class="plan card hi"><h3>When you're ready</h3><p class="price sub">Whenever that is</p><p>Your first person in the US.</p><ul><li>GTM or partnerships</li><li>Contract or full-time, whichever is simplest for a Swiss company</li><li>US business hours covered</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="me">
+    <div class="wrap">
+      <div class="head"><h2>Who I am</h2></div>
+      <div class="person">
+        <div class="person-text">
+          <p class="lede">I'm Charls Daren Pasion. I grew up between England and Hawaii, spent a decade in New York, and live in Seattle.</p>
+          <p class="sub">I co-founded and ran a company for seven years, so your month-by-month post read differently to me than it would to most people. Today I manage restaurant accounts at Uber, and I build with AI on my own, as you do. I want my next job to be at a small company where the product itself is AI and the playbook isn't written yet.</p>
+          <div class="cta-row">
+            <a class="pill" href="https://drive.google.com/file/d/1HulV7lwOcBep4FRqVrYcO2RKlXqhJZ8Y/view?usp=sharing" target="_blank" rel="noopener">View my resume</a>
+            <a class="pill ghost" href="https://www.linkedin.com/in/charls-daren-pasion-97a16420a" target="_blank" rel="noopener">Connect on LinkedIn</a>
+          </div>
+          <div class="mail-row">
+            <span class="email" id="email">cdp.gervacio@gmail.com</span>
+            <button class="pill sm ghost" id="copyBtn">Copy email</button>
+            <span class="toast" id="toast" role="status"></span>
+          </div>
+        </div>
+        <div class="how">
+            <div><h3>No task too small</h3><p>I cleaned my own lists, checked my own bounces and fixed my own data.</p></div>
+            <div><h3>I find the answer first</h3><p>I built and repaired that system myself. I'd save your time for the questions only you can answer.</p></div>
+            <div><h3>Startup pace</h3><p>Built on nights and weekends beside a full-time job.</p></div>
+          </div>
+      </div>
+    </div>
+  </section>
+  <section class="closer" id="closer">
+    <div class="wrap">
+      <h2 aria-label="Mono means one."><span id="oneTxt">Mono means one.</span><span class="caret" aria-hidden="true"></span></h2>
+      <p class="two" id="twoTxt">When you're ready for two,<br>I'm in Seattle.</p>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">Built by Charls Daren Pasion with AI assistance. An independent page, not affiliated with Mono.</div></footer>
+
+<script>
+(() => {
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = id => document.getElementById(id);
+const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const vis = new WeakMap();
+const visIO = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => vis.set(e.target, e.isIntersecting))) : null;
+const isVis = el => visIO ? !!vis.get(el) : true;
+
+/* ---------- router ---------- */
+const ASKS = [
+  {q:'Find our first 50 US teams', k:'Outbound from zero', co:'Garmentory · April to August 2026', n:'67.5%', nl:'of GMV from net-new partners came from the 10 boutiques I signed', p:'I built the outbound system myself, on contract at ten hours a week, and ran it for $217 a month. All 10 stores I signed went on to sell.'},
+  {q:'Grow the accounts we already have', k:'Account growth', co:'Uber · Q3 2026', n:'104%', nl:'of quota, against a 37% blended growth target', p:'I manage SMB restaurant accounts at Uber in Seattle. After a strong Q3 finish I was awarded a much bigger book for Q4: $8 million to $40 million in annual GMV.'},
+  {q:'Open partner channels', k:'Partnerships', co:'Garmentory · 2023 to 2025', n:'50%+', nl:'of all net-new partners company-wide, as one of four people on business development', p:'In the same years I managed the top 50 accounts, which made up 55% of marketplace revenue, and grew them 22 to 30% quarter over quarter.'},
+  {q:'Sell to bigger companies', k:'Enterprise', co:'Talk Carpet · 2016 to 2023', n:'$7M', nl:'in annual revenue at the company I co-founded', p:'Commercial carpet for offices and hotels. Clients included Google, Netflix, Dropbox and Marriott, through firms like Gensler. I owned each deal from the first call to the final payment.'},
+  {q:'Do it without an engineer', k:'Building with AI', co:'Garmentory · 2026', n:'$217', nl:'a month for a full outbound stack, built with AI coding agents', p:'I am not an engineer. I built the scrapers, the enrichment and the send tracking with AI agents, and fixed what broke myself. The map below shows it running.'}
+];
+const chipsEl = $('chips'), pipsEl = $('pips'), ansEl = $('answer'), askText = $('askText'), routeEl = $('route');
+let askI = 0, askUser = false, askT = 0, typing = null;
+ASKS.forEach((a, i) => {
+  const b = document.createElement('button'); b.className = 'chip'; b.id = 'chip' + i; b.textContent = a.q; b.setAttribute('aria-pressed', i === 0); b.style.setProperty('--i', i);
+  b.addEventListener('click', () => { askUser = true; chipsEl.classList.remove('hint'); setAsk(i); });
+  chipsEl.appendChild(b); pipsEl.appendChild(document.createElement('i'));
+});
+pipsEl.firstChild.className = 'on';
+function fill(a){ $('aCo').textContent = a.co; $('aN').textContent = a.n; $('aNl').textContent = a.nl; $('aK').textContent = a.k; $('aP').textContent = a.p; }
+function setAsk(i){
+  askI = i; askT = 0;
+  [...chipsEl.children].forEach((c, k) => c.setAttribute('aria-pressed', k === i));
+  [...pipsEl.children].forEach((p, k) => p.className = k === i ? 'on' : '');
+  const a = ASKS[i]; clearTimeout(typing);
+  if (RM){ askText.textContent = a.q; fill(a); return; }
+  ansEl.classList.add('swap'); let c = 0; askText.textContent = '';
+  (function step(){ c++; askText.textContent = a.q.slice(0, c); if (c < a.q.length) typing = setTimeout(step, 22); else typing = setTimeout(() => { fill(a); ansEl.classList.remove('swap'); }, 220); })();
+}
+
+/* ---------- system map ---------- */
+const NODES = {
+  disc:{t:'Discovery scraper', tag:'Scraper · SerpAPI', did:'Searched Google through SerpAPI for independent boutiques. It checked my remaining credits before every run, capped queries per run, and sent new finds to Airtable for review instead of straight into outreach.', at:'Find US teams by public evidence, such as agencies writing about the AI tools they pay for. Cap the spend per run and review before anyone is contacted.'},
+  stock:{t:'Stockist scraper', tag:'Scraper · 47 brands', did:'Crawled the stockist pages of 47 brands to find boutiques already carrying labels that sold well on Garmentory. Our best sellers became a map of where to find more partners like them.', at:'Lookalike sourcing. Start from the kinds of teams already paying for Mono, then find the ones around them that look the same.'},
+  air:{t:'Airtable base', tag:'Hub · source of truth', did:'One base for boutiques, contacts, activities and partners, with every record moving through stages from New Prospect to Live.', at:'One record per team from first signal to paid seats, so you can see which sources convert.'},
+  hunt:{t:'Contact enrichment', tag:'Script · Hunter.io', did:'Found decision-maker emails, firing only at the New Prospect stage so credits went to qualified stores. When it corrupted contact data on some records, I traced the cause, repaired them and added pre-send checks.', at:'Pay for contact data only on teams that already qualify, so spend follows fit.'},
+  draft:{t:'Outreach drafter', tag:'Script · Claude + Gmail API', did:'Drafted personalized touches straight into Gmail drafts, written to my rules on tone and format. I reviewed the first touches before anything went out. An alternate address was tried only after a known one had failed.', at:'A person reads every first message. Nothing goes out under the Mono name unreviewed.'},
+  det:{t:'Send and reply tracking', tag:'Script · Gmail API', did:'Logged sends and replies back to Airtable, filtered auto-responses and flagged bounces, so follow-ups fired on time without manual logging.', at:'Know who replied, who bounced and who needs a follow-up, without anyone logging it by hand.'},
+  orch:{t:'Agent orchestration', tag:'AI coding agents', did:'I built and ran the system with AI coding agents, often three at once: one discovering, one scraping, one auditing. Each worked under written rules, like a dry run before any live write.', at:'The way you build Mono: one person, several agents, clear rules. New sourcing ideas get tested the same week.'},
+  guard:{t:'Guardrails', tag:'Rules the system follows', did:'Credit checks and query caps on every run. Dry runs before any live write. A read-only do-not-contact list. A sync with live partner data, so active partners never got cold outreach.', at:'Decide ahead of time what the system may not do. A one-person brand can’t afford a bad send.'}
+};
+const builtEl = $('built'), detailEl = $('detail');
+const nEls = [...builtEl.querySelectorAll('[data-n]')];
+function setNode(id){
+  nEls.forEach(b => { const on = b.dataset.n === id; if (b.classList.contains('act')) b.classList.toggle('on', on); else b.setAttribute('aria-pressed', on); });
+  const d = NODES[id];
+  detailEl.innerHTML = `<div><div class="tag">${esc(d.tag)}</div><h3>${esc(d.t)}</h3></div><div><div class="tag">What it did</div><p>${esc(d.did)}</p></div><div class="at"><div class="tag">For Mono</div><p>${esc(d.at)}</p></div>`;
+}
+nEls.forEach(b => b.addEventListener('click', () => { setNode(b.dataset.n); if (innerWidth < 760) detailEl.scrollIntoView({behavior: RM ? 'auto' : 'smooth', block:'nearest'}); }));
+setNode('stock');
+
+const sysEl = $('sys'), svgEl = $('sysSvg'), NS = 'http://www.w3.org/2000/svg';
+const EDGES = [['disc','air'],['stock','air'],['air','hunt'],['hunt','draft'],['draft','det'],['det','air',1]];
+let edgeEls = [], packets = [], spawnAcc = 0, discCount = 0, airCount = 0;
+const nodeEl = id => sysEl.querySelector(`.node[data-n="${id}"]`);
+const guardEl = g => document.querySelector(`.guard[data-g="${g}"]`);
+function relRect(el, cr){ const r = el.getBoundingClientRect(); return {l:r.left - cr.left, r:r.right - cr.left, t:r.top - cr.top, b:r.bottom - cr.top, cx:(r.left + r.right)/2 - cr.left, cy:(r.top + r.bottom)/2 - cr.top}; }
+function layout(){
+  const cr = sysEl.getBoundingClientRect();
+  svgEl.setAttribute('viewBox', `0 0 ${cr.width} ${cr.height}`);
+  svgEl.querySelectorAll('path').forEach(p => p.remove());
+  edgeEls = EDGES.map(([a, b, back]) => {
+    const A = relRect(nodeEl(a), cr), B = relRect(nodeEl(b), cr);
+    const dx = B.cx - A.cx, dy = B.cy - A.cy; let d;
+    if (Math.abs(dx) > Math.abs(dy)*.6){
+      const s = Math.sign(dx), x1 = s > 0 ? A.r : A.l, x2 = s > 0 ? B.l : B.r, y1 = A.cy + (back ? 10 : 0), y2 = B.cy + (back ? 10 : 0), mx = (x1 + x2)/2;
+      d = `M${x1} ${y1} C${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`;
+    } else {
+      const y1 = A.b, y2 = B.t, my = (y1 + y2)/2;
+      d = `M${A.cx} ${y1} C${A.cx} ${my}, ${B.cx} ${my}, ${B.cx} ${y2}`;
+    }
+    const p = document.createElementNS(NS, 'path'); p.setAttribute('d', d); p.setAttribute('class', 'edge' + (back ? ' back' : ''));
+    svgEl.insertBefore(p, svgEl.firstChild);
+    return {p, len:p.getTotalLength()};
+  });
+}
+function flash(el, cls, ms){ if (!el) return; el.classList.add(cls); clearTimeout(el._ft); el._ft = setTimeout(() => el.classList.remove(cls), ms); }
+function addPacket(ei, opts = {}){
+  if (packets.length > 48) return;
+  const c = document.createElementNS(NS, 'circle'); c.setAttribute('r', opts.r || 3.6);
+  c.setAttribute('class', 'pk' + (EDGES[ei][2] ? ' st' : ''));
+  svgEl.appendChild(c);
+  packets.push({ei, t:opts.t || 0, c, block:!!opts.block, g:opts.g, sp:.42 + Math.random()*.12});
+}
+function arrive(pk){
+  const [, to, back] = EDGES[pk.ei];
+  flash(nodeEl(to), 'hit', 380);
+  if (to === 'air' && !back){ airCount++; if (airCount % 6 === 0) flash(guardEl('dry'), 'flash', 900); if (Math.random() < .72) addPacket(2); }
+  else if (to === 'hunt'){ const bl = Math.random() < .18; addPacket(3, bl ? {block:true, g:Math.random() < .5 ? 'dnc' : 'live'} : {}); }
+  else if (to === 'draft') addPacket(4);
+  else if (to === 'det') addPacket(5, {r:2.8});
+}
+function place(pk){ const E = edgeEls[pk.ei]; if (!E) return; const pt = E.p.getPointAtLength(Math.min(1, pk.t)*E.len); pk.c.setAttribute('cx', pt.x); pk.c.setAttribute('cy', pt.y); }
+function sysStep(dt){
+  spawnAcc += dt*1.5;
+  while (spawnAcc > 1){ spawnAcc--; const ei = Math.random() < .45 ? 0 : 1; if (ei === 0){ discCount++; if (discCount % 14 === 0) flash(guardEl('cap'), 'flash', 900); } addPacket(ei); }
+  packets.forEach(pk => {
+    pk.t += dt*pk.sp;
+    if (pk.block && pk.t > .5 && !pk.dead){ pk.dead = true; pk.c.setAttribute('class', 'pk b'); flash(guardEl(pk.g), 'flash', 900); }
+    if (pk.dead){ pk.fade = (pk.fade || 1) - dt*2.2; pk.c.style.opacity = Math.max(0, pk.fade); }
+    place(pk);
+    if (pk.t >= 1 && !pk.dead){ pk.done = true; arrive(pk); }
+  });
+  packets = packets.filter(pk => { const gone = pk.done || (pk.dead && pk.fade <= 0); if (gone) pk.c.remove(); return !gone; });
+}
+
+/* agent activity */
+const LINES = [
+  ['$ node discovery.js --max-credits 40','✓ pre-flight: credits above floor','query 07/40  independent womenswear boutique','+ 2 new → Airtable (Needs Review)','query 08/40  curated menswear shop','· 0 new, already in base','query 09/40  concept store home goods','+ 1 new → Airtable (Needs Review)','✓ run capped at 40 queries. done'],
+  ['$ node stockist-scraper.js','brand 12/47  fetching stockist page','found 31 stockists','· skip 4: live partner domains','+ 6 candidates → Airtable','brand 13/47  fetching stockist page','found 18 stockists','· skip 2: do-not-contact list','+ 3 candidates → Airtable'],
+  ['> audit drafts against Airtable','dry run: 0 live writes','· flag: recipient changed on 1 draft','> check bounces since last run','✓ 3 bounces flagged','> filter auto-replies','✓ 5 out-of-office replies ignored','> follow-ups due today','✓ 4 drafts queued for review']
+];
+const actsEl = $('acts');
+const acts = [...actsEl.querySelectorAll('.act-body')].map((el, i) => ({el, lines:LINES[i], li:0, ci:0, wait:i*.6, shown:[], last:''}));
+const lineCls = l => l.startsWith('✓') || l.startsWith('+') ? 'ok' : (l.startsWith('·') || l.startsWith('dry') ? 'dim' : '');
+function renderAct(T){
+  const cur = T.lines[T.li].slice(0, Math.floor(T.ci));
+  const html = T.shown.map(l => `<div class="${lineCls(l)}">${esc(l)}</div>`).join('') + `<div class="${lineCls(T.lines[T.li])}">${esc(cur)}<span class="caret"></span></div>`;
+  if (html !== T.last){ T.el.innerHTML = html; T.last = html; }
+}
+function tickAct(T, dt){
+  if (T.wait > 0){ T.wait -= dt; return; }
+  const line = T.lines[T.li];
+  T.ci += dt*(line[0] === '$' || line[0] === '>' ? 26 : 70);
+  if (T.ci >= line.length){ T.shown.push(line); if (T.shown.length > 5) T.shown.shift(); T.li = (T.li + 1) % T.lines.length; T.ci = 0; T.wait = .3 + Math.random()*.6; }
+  renderAct(T);
+}
+acts.forEach(T => { const n = RM ? 6 : 4; for (let k = 0; k < n; k++) T.shown.push(T.lines[k]); T.shown = T.shown.slice(-5); T.li = n % T.lines.length; renderAct(T); });
+
+/* ---------- results count-up ---------- */
+const resEl = $('results');
+if (!RM && 'IntersectionObserver' in window && resEl.getBoundingClientRect().top > innerHeight){
+  const cio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; cio.disconnect();
+    resEl.querySelectorAll('.cnt').forEach((el, k) => {
+      const to = +el.dataset.to, dec = +(el.dataset.dec || 0), t0 = performance.now() + k*140;
+      (function f(now){ const q = Math.max(0, Math.min(1, (now - t0)/1300)), e2 = 1 - Math.pow(1 - q, 3); el.textContent = (to*e2).toFixed(dec); if (q < 1) requestAnimationFrame(f); })(performance.now());
+    });
+  }), {threshold:.3});
+  cio.observe(resEl);
+}
+
+/* ---------- clocks ---------- */
+const WORDS = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'];
+function hm(zone){
+  const p = new Intl.DateTimeFormat('en-GB', {timeZone:zone, hour:'2-digit', minute:'2-digit', hour12:false}).formatToParts(new Date());
+  const g = t => +p.find(x => x.type === t).value; return [g('hour') % 24, g('minute')];
+}
+const pad = n => String(n).padStart(2, '0');
+function clocks(){
+  let L, S; try { L = hm('Europe/Zurich'); S = hm('America/Los_Angeles'); } catch (e) { return; }
+  $('cL').textContent = pad(L[0]) + ':' + pad(L[1]); $('cS').textContent = pad(S[0]) + ':' + pad(S[1]);
+  const diff = ((L[0] - S[0]) % 24 + 24) % 24;
+  $('diffTxt').textContent = WORDS[diff] || diff; $('handTxt').textContent = pad((9 + diff) % 24) + ':00';
+  const s = (9 + diff) % 24, e = (17 + diff) % 24, tr = $('trackS');
+  const segs = s < e ? [[s, e]] : [[s, 24], [0, e]];
+  tr.innerHTML = segs.filter(x => x[1] > x[0]).map(x => `<div class="seg s" style="left:${x[0]/24*100}%;width:${(x[1] - x[0])/24*100}%"></div>`).join('') + `<div class="now" style="left:${(L[0] + L[1]/60)/24*100}%"></div>`;
+  const n = $('nowL'); n.hidden = false; n.style.left = (L[0] + L[1]/60)/24*100 + '%';
+}
+clocks(); setInterval(clocks, 20000);
+
+/* ---------- copy ---------- */
+$('copyBtn').addEventListener('click', () => {
+  const el = $('email'), toast = $('toast');
+  const sel = () => { const rg = document.createRange(); rg.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(rg); toast.textContent = 'Selected. Copy from here.'; };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(el.textContent.trim()).then(() => toast.textContent = 'Copied', sel); else sel();
+});
+
+/* ---------- closer ---------- */
+const closerEl = $('closer'), oneTxt = $('oneTxt'), twoTxt = $('twoTxt');
+if (!RM && 'IntersectionObserver' in window && closerEl.getBoundingClientRect().top > innerHeight){
+  const full = oneTxt.textContent; oneTxt.textContent = ''; twoTxt.classList.add('wait');
+  const kio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; kio.disconnect(); let i = 0;
+    (function step(){ i++; oneTxt.textContent = full.slice(0, i); if (i < full.length) setTimeout(step, i === 4 ? 320 : 85 + Math.random()*60); else setTimeout(() => twoTxt.classList.remove('wait'), 900); })();
+  }), {threshold:.45});
+  kio.observe(closerEl);
+}
+
+/* ---------- theme: auto -> light -> dark ---------- */
+const themeBtn = $('themeBtn'), rootEl = document.documentElement;
+const MODES = ['auto','light','dark'], LABEL = {auto:'Auto (matches your device)', light:'Light', dark:'Dark'};
+let mode = 'auto';
+function applyMode(m, announce){
+  mode = m; if (m === 'auto') delete rootEl.dataset.theme; else rootEl.dataset.theme = m;
+  themeBtn.dataset.mode = m; themeBtn.dataset.label = LABEL[m];
+  themeBtn.setAttribute('aria-label', 'Theme: ' + LABEL[m] + '. Switch to ' + LABEL[MODES[(MODES.indexOf(m) + 1) % 3]]);
+  if (announce){ themeBtn.classList.add('show-label'); clearTimeout(themeBtn._t); themeBtn._t = setTimeout(() => themeBtn.classList.remove('show-label'), 1400); }
+}
+try { const sv = localStorage.getItem('mono-page-theme'); if (MODES.includes(sv)) mode = sv; } catch (e) {}
+applyMode(mode);
+themeBtn.addEventListener('click', () => { const next = MODES[(MODES.indexOf(mode) + 1) % 3]; applyMode(next, true); try { localStorage.setItem('mono-page-theme', next); } catch (e) {} });
+
+/* ---------- loop ---------- */
+function seed(){ [[0,.3],[1,.6],[1,.15],[2,.5],[3,.4],[4,.7],[5,.35]].forEach(([ei, t]) => addPacket(ei, {t})); packets.forEach(place); }
+function resize(){ layout(); packets.forEach(place); }
+addEventListener('resize', resize); layout(); seed();
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(resize);
+if (visIO) [sysEl, actsEl, routeEl].forEach(el => visIO.observe(el));
+let last = performance.now();
+function loop(now){
+  const dt = Math.min(.05, (now - last)/1000); last = now;
+  if (isVis(sysEl)) sysStep(dt);
+  if (isVis(actsEl)) acts.forEach(T => tickAct(T, dt));
+  if (!askUser && isVis(routeEl)){ askT += dt; if (askT > 6.5) setAsk((askI + 1) % ASKS.length); }
+  requestAnimationFrame(loop);
+}
+if (!RM) requestAnimationFrame(loop);
+})();
+</script>
+
+</body>
+</html>
